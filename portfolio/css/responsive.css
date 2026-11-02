@@ -1,0 +1,58 @@
+/* Nav collapses before links get cramped */
+@media (max-width: 1080px) {
+  .nav-toggle {
+    display: inline-flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+    width: 44px; height: 44px; border-radius: var(--radius); border: 1px solid var(--border-strong); background: var(--bg-2); cursor: pointer;
+  }
+  .nav-toggle-bar { width: 18px; height: 2px; background: var(--text); border-radius: 2px; transition: transform var(--dur) var(--ease), opacity var(--dur); }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav {
+    position: fixed; top: var(--header-h); left: 0; right: 0; bottom: 0;
+    flex-direction: column; align-items: stretch; gap: var(--space-5);
+    padding: var(--space-5) clamp(1.25rem, 4vw, 2.5rem) var(--space-7);
+    background: var(--bg); border-top: 1px solid var(--border); overflow-y: auto;
+    opacity: 0; visibility: hidden; transform: translateY(-8px);
+    transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease), visibility var(--dur);
+  }
+  .nav.is-open { opacity: 1; visibility: visible; transform: none; }
+  .nav-list { flex-direction: column; gap: 0; }
+  .nav-link { padding: var(--space-4) var(--space-2); font-size: 1.1rem; border-bottom: 1px solid var(--border); border-radius: 0; }
+  .nav-link.is-active { background: transparent; color: var(--accent-text); }
+  .nav-cta { min-height: 48px; }
+  .site-header.menu-open { background: var(--bg); border-bottom-color: var(--border); }
+  body.no-scroll { overflow: hidden; }
+
+  .process { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: var(--space-6); }
+}
+
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero-visual { max-width: 560px; }
+  .contact-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about-grid { grid-template-columns: minmax(0, 1fr); }
+  .skills-grid, .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .timeline-item { grid-template-columns: minmax(0, 1fr); gap: var(--space-3); }
+}
+
+@media (max-width: 680px) {
+  .skills-grid, .services-grid, .projects-grid, .edu { grid-template-columns: minmax(0, 1fr); }
+  .stats { grid-template-columns: minmax(0, 1fr); }
+  .process { grid-template-columns: minmax(0, 1fr); }
+  .focus-list { grid-template-columns: minmax(0, 1fr); }
+  .contact-email-actions .btn { flex: 1 1 auto; }
+  .footer-inner { grid-template-columns: minmax(0, 1fr); justify-items: start; }
+  .footer-nav { justify-content: flex-start; }
+  .hero-actions .btn { flex: 1 1 auto; }
+  .metric-card { left: 8px; }
+  .preview-card { right: 8px; }
+}
+
+@media (max-width: 400px) {
+  .logo-text { display: none; }
+  .editor-code { font-size: 0.72rem; padding: 16px; }
+  .metric-card { display: none; }
+  .contact-cards { grid-template-columns: minmax(0, 1fr); }
+}
