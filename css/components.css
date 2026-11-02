@@ -88,6 +88,7 @@
 /* ===== About ===== */
 .about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: var(--space-6) clamp(2rem, 6vw, 5rem); }
 .about-body { display: grid; gap: var(--space-4); color: var(--text-2); }
+.about-body strong { color: var(--text); font-weight: 700; }
 .focus-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3) var(--space-5); margin-top: var(--space-3); color: var(--text); font-weight: 600; font-size: 0.95rem; }
 .focus-list li { display: flex; align-items: center; gap: var(--space-2); }
 .focus-list svg { width: 18px; height: 18px; color: var(--accent-2); flex-shrink: 0; }
